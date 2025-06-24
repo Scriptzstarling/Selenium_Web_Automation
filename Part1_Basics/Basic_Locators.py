@@ -17,8 +17,13 @@ time.sleep(2) #wait for 2 second to let the page load
 # username = driver.find_element(By.NAME, "user-name")
 
 #relative xpath to locate username
-username = driver.find_element(By.XPATH, "//input[@id='user-name']")
+# username = driver.find_element(By.XPATH, "//input[@id='user-name']")
 
+#locate username using AND method
+# username = driver.find_element(By.XPATH, "//input[@type='text' and @id='user-name']")
+
+#locate username using Index
+username = driver.find_element(By.XPATH, "(//input)[1]")
 #enter username
 username.send_keys("standard_user")
 
@@ -31,12 +36,23 @@ password.send_keys("secret_sauce")
 time.sleep(5)
 
 #locate login button
-loginBtn = driver.find_element(By.XPATH, "//input[@id='login-button']")
+# loginBtn = driver.find_element(By.XPATH, "//input[@id='login-button']")
+
+#locate login button using OR method
+loginBtn = driver.find_element(By.XPATH, "//input[@id='login-button' or @id='wrong-id']")
 
 #click on login button
 loginBtn.click()
-time.sleep(5)
+time.sleep(2)
 
+#contains() - locate add to cart button
+# addToCart = driver.find_element(By.XPATH, "//button[contains(@id,'sauce-labs-bolt-t-shirt')]")
+# addToCart.click()
+
+#text() - locate web element sauce lab fleece jacket and perform click action
+product = driver.find_element(By.XPATH, "//div[text()='Sauce Labs Fleece Jacket']")
+product.click()
+time.sleep(5)
 
 #close browser
 driver.quit()
