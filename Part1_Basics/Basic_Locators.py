@@ -28,7 +28,10 @@ time.sleep(2) #wait for 2 second to let the page load
 # username = driver.find_element(By.XPATH, "//input[@type='text' and @id='user-name']")
 
 #locate username using Index
-username = driver.find_element(By.XPATH, "(//input)[1]")
+# username = driver.find_element(By.XPATH, "(//input)[1]")
+
+#locate username using css selector
+username = driver.find_element(By.CSS_SELECTOR, "input")
 #enter username
 username.send_keys("standard_user")
 
