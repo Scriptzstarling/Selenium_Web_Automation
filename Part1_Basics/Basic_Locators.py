@@ -2,9 +2,14 @@
 from selenium import webdriver
 import time
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
 
-#instantiate webdriver and launch Chrome browser
-driver = webdriver.Chrome()
+# Add incognito mode
+options = Options()
+options.add_argument("--incognito")
+
+# instantiate webdriver and launch Chrome browser in incognito
+driver = webdriver.Chrome(options=options)
 
 #maximize browser window
 driver.maximize_window()
